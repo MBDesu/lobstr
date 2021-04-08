@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>
+  Add player
+</h1>
+<div mat-dialog-content style="padding-top: 1.5em; height: 85px;">
+  <form>
+    <mat-form-field>
+      <mat-label>Player name</mat-label>
+      <input matInput placeholder="Player name"
+        [formControl]="playerNameFormControl"
+        [errorStateMatcher]="playerNameErrorStateMatcher"
+        maxlength="85"
+        cdkFocusInitial
+      />
+      <mat-error *ngIf="playerNameFormControl.hasError('maxlength')">
+        Player name cannot exceed 85 characters.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div class="justify-content-right" mat-dialog-actions>
+  <button mat-button color="accent" [mat-dialog-close]="null">Cancel</button>
+  <button mat-button color="primary" [mat-dialog-close]="addPlayerToLobby()" [disabled]="!playerNameFormControl.valid" cdkFocusInitial>OK</button>
+</div>

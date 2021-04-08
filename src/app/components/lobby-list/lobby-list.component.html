@@ -1,0 +1,6 @@
+<button mat-mini-fab (click)="shufflePlayers()" color="primary" matTooltip="Shuffle players">
+  <mat-icon>shuffle</mat-icon>
+</button><br /><br />
+<lobstr-lobby #lobbies *ngFor="let lobby of _lobbies; let i = index" [lobbyData]="lobby" [index]="i" cdkDropList
+  [cdkDropListData]="lobby.players" class="drop-list" cdkDropListSortingDisabled
+  (cdkDropListDropped)="dropPlayer($event)" (onDelete)="deleteLobby($event)"></lobstr-lobby>

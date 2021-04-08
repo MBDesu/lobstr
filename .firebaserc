@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "lobstr-368ff"
+  },
+  "targets": {
+    "lobstr-368ff": {
+      "hosting": {
+        "lobster": [
+          "lobstr-368ff"
+        ]
+      }
+    }
+  }
+}

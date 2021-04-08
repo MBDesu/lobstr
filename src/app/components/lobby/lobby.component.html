@@ -1,0 +1,34 @@
+<h3 class="drop-list-label">
+  <span>Lobby {{ index + 1 }} ({{ lobbyData.currentNumPlayers }}/{{ lobbyData.maxNumPlayers }})</span>
+  <span class="lobby-controls">
+    <span>
+      <mat-form-field>
+        <mat-label>Add player</mat-label>
+        <input matInput placeholder="Player name"
+        [formControl]="playerNameFormControl"
+        [errorStateMatcher]="playerNameErrorStateMatcher"
+        maxlength="85"
+        cdkFocusInitial
+        (keydown.enter)="addPlayer()"
+      />
+      </mat-form-field>
+      <button [disabled]="!this.playerNameFormControl.valid || lobbyData.currentNumPlayers === lobbyData.maxNumPlayers" mat-icon-button color="primary" (click)="addPlayer()" matTooltip="Add player">
+        <mat-icon>add</mat-icon>
+      </button>
+    </span>
+    <span>
+      <button mat-icon-button (click)="deleteLobby()" color="primary" matTooltip="Delete lobby">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+  </span>
+</h3>
+<div class="drop-list-item" *ngFor="let player of lobbyData.players" cdkDrag>
+  <span>{{ player }}</span>
+  <span class="player-controls">
+    <button mat-icon-button color="primary" (click)="removePlayer(player)" matTooltip="Remove player">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </span>
+</div>
+<br />

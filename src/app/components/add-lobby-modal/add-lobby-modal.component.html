@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  Add new lobby
+</h1>
+<div mat-dialog-content style="padding-top: 1.5em;">
+  <mat-label>Lobby size</mat-label>
+  <mat-slider thumbLabel min="2" max="6" step="1" [(value)]="lobbySize"></mat-slider>&nbsp;{{ lobbySize }}
+</div>
+<div class="justify-content-right" mat-dialog-actions>
+  <button mat-button color="accent" [mat-dialog-close]="null">Cancel</button>
+  <button mat-button color="primary" [mat-dialog-close]="createNewLobby()" cdkFocusInitial>OK</button>
+</div>
