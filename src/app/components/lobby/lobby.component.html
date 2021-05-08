@@ -12,6 +12,8 @@
         (keydown.enter)="addPlayer()"
       />
       </mat-form-field>
+    </span>
+    <span>
       <button [disabled]="!this.playerNameFormControl.valid || lobbyData.currentNumPlayers === lobbyData.maxNumPlayers" mat-icon-button color="primary" (click)="addPlayer()" matTooltip="Add player">
         <mat-icon>add</mat-icon>
       </button>
